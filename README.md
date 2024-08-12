@@ -41,6 +41,7 @@ Code Folder:
 
 
 Operation of GUI:
+
 Step 1: Open the GUI File
     Start by running the capstone_GUI.py file. This will launch the graphical user interface designed for the project.
 

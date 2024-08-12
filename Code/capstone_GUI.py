@@ -1,29 +1,24 @@
 import tkinter as tk
 from tkinter import ttk
-import capstone_data_processing as dp
-from capstone_custom_model import CustomClassifier, build_custom_model
-
-# Build and train the custom model
-models, class_model_map = build_custom_model()
-custom_clf = CustomClassifier(models=models, class_model_map=class_model_map)
-custom_clf.fit(dp.X_train_tfidf_resampled, dp.y_train_resampled)
+import capstone_custom_model as cm  # Import custom model
+import capstone_data_processing as dp  # Import data processing module
 
 def predict_impact(text, time):
-    # Preprocess the input text
+    # Use the data processing module to preprocess the input text
     processed_text = dp.clean_text(text)
     processed_text = dp.remove_stop_words(processed_text)
     
-    # Ensure the processed text is passed as a list of strings
-    tfidf = dp.vectorize_text([processed_text], dp.X_train_tfidf)
+    # Transform the text using the same TF-IDF vectorizer and model as in training
+    tfidf_transformed = dp.vectorize_text([processed_text], dp.X_train_tfidf)[0]
     
     # Predict using the custom model
-    y_pred = custom_clf.predict(tfidf)
+    y_pred = cm.custom_clf.predict(tfidf_transformed)
     
     # Map prediction to the target labels
     demographics = ["Business", "Consumers", "General Public", "Government", "Minorities", "Workers"]
     result = demographics[y_pred[0]]
     
-    # Placeholder keywords
+    # Placeholder keywords (replace with your model's output if available)
     keywords = ["privacy", "security", "data"]
 
     # Update the GUI

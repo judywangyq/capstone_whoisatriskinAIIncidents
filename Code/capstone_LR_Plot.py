@@ -4,9 +4,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, roc_curve, auc, confusion_matrix, ConfusionMatrixDisplay, precision_recall_curve, average_precision_score
 from sklearn.preprocessing import label_binarize
 from sklearn.decomposition import PCA
-from sklearn.feature_extraction.text import TfidfVectorizer  # Add this import
-import capstone_data_processing as dp  # Import your data processing module
-import pickle  # Add this import to save results
+from sklearn.feature_extraction.text import TfidfVectorizer 
+import capstone_data_processing as dp 
+import pickle 
 
 # ==============================================================================================================
 # Logistic Regression Modeling

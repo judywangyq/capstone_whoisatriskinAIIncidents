@@ -16,9 +16,11 @@ The goal of this project is to develop a predictive model that accurately identi
 Research Objectives:
 
 Data Analysis & Preprocessing: Utilize the OECD AI incident database to analyze and clean incident data for machine learning applications.
-Feature Engineering: Apply natural language processing techniques to extract and engineer relevant features from incident reports.
-Model Development: Implement various machine learning models, including Logistic Regression, K-Nearest Neighbors (KNN), and Deep Neural Networks (DNN), to predict affected stakeholders.
-Model Evaluation: Compare and evaluate the models based on metrics like F1 score, precision, and recall to determine the best-performing approach.
+
+Feature Engineering: Apply natural language processing techniques.
+
+Model Evaluation: Implement various machine learning models, including Logistic Regression, K-Nearest Neighbors (KNN), and Deep Neural Networks (DNN). Compare and evaluate the models based on metrics like F1 score, precision, and recall to determine the best-performing approach.
+
 Custom Model Implementation: Develop a custom taxonomy model that combines the strengths of the best-performing models to enhance prediction accuracy and reduce computational costs.
 
 Workflow:

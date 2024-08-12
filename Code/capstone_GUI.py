@@ -1,11 +1,32 @@
 import tkinter as tk
 from tkinter import ttk
+import capstone_data_processing as dp
+from capstone_custom_model import CustomClassifier, build_custom_model
+
+# Build and train the custom model
+models, class_model_map = build_custom_model()
+custom_clf = CustomClassifier(models=models, class_model_map=class_model_map)
+custom_clf.fit(dp.X_train_tfidf_resampled, dp.y_train_resampled)
 
 def predict_impact(text, time):
-    # Placeholder function for processing input text and selected time
-    # Implement your model prediction logic here
-    result = "General Public"
+    # Preprocess the input text
+    processed_text = dp.clean_text(text)
+    processed_text = dp.remove_stop_words(processed_text)
+    
+    # Ensure the processed text is passed as a list of strings
+    tfidf = dp.vectorize_text([processed_text], dp.X_train_tfidf)
+    
+    # Predict using the custom model
+    y_pred = custom_clf.predict(tfidf)
+    
+    # Map prediction to the target labels
+    demographics = ["Business", "Consumers", "General Public", "Government", "Minorities", "Workers"]
+    result = demographics[y_pred[0]]
+    
+    # Placeholder keywords
     keywords = ["privacy", "security", "data"]
+
+    # Update the GUI
     output_label.config(text=f"The incident description is likely to affect: {result}")
     keywords_label.config(text=f"Top 3 Keywords for this Demographic: {', '.join(keywords)}")
 

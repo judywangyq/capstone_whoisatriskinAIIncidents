@@ -38,17 +38,4 @@ Code Folder:
     capstone_model_names_plot.py:
     This script is responsible for training various machine learning models on the processed data. It also generates and plots necessary images and analyses, including confusion matrices, ROC curves, and other performance metrics to evaluate the models' effectiveness.
 
-    capstone_GUI.py:
-    A simple Graphical User Interface (GUI) script that allows users to input incident descriptions. The GUI processes the input through the trained models and outputs the predicted impact group, providing an accessible way to use the predictive model.
 
-
-Operation of GUI:
-
-Step 1: Open the GUI File
-    Start by running the capstone_GUI.py file. This will launch the graphical user interface designed for the project.
-
-Step 2: Input a Description of the Incident
-    Enter a brief description of the AI-related incident into the provided input field. This description should be in natural language, similar to how incidents are reported in news articles.
-
-Step 3: View Output Results
-    After submitting the incident description, the GUI will process the input using the custom model implemented in capstone_custom_model.py. The predicted impact group(s) will be displayed as the output, indicating which stakeholder group(s) are most likely to be affected by the described incident.
